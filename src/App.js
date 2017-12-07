@@ -7,14 +7,13 @@ import './App.css'
 
 class BooksApp extends React.Component {
   state = {
-    allBooks: []
+    allBooks: [],
+    shelfCategories: [
+      {id: "wantToRead", title: "Want to Read"}, 
+      {id: "currentlyReading", title: "Currently Reading"}, 
+      {id: "read", title: "Read"}
+    ]
   }
-
-  shelfCategories = [
-    {id: "wantToRead", title: "Want to Read"}, 
-    {id: "currentlyReading", title: "Currently Reading"}, 
-    {id: "read", title: "Read"}
-  ];
 
   componentDidMount(){
     BooksAPI.getAll().then((allBooks) => {
@@ -27,7 +26,7 @@ class BooksApp extends React.Component {
     return (
       <div className="app">
           <Route exact path='/' render={() => (
-            <BookShelves allBooks={this.state.allBooks} shelfCategories={this.shelfCategories}/>
+            <BookShelves allBooks={this.state.allBooks} shelfCategories={this.state.shelfCategories}/>
           )}/>
           <Route path='/search' render={() => (
             <SearchBooks allBooks={this.state.allBooks}/>
