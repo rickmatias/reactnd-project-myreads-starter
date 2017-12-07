@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import ShelfBooks from './ShelfBooks';
+import BookShelves from './BookShelves';
 import SearchBooks from './SearchBooks';
 import * as BooksAPI from './BooksAPI';
 
@@ -10,14 +10,13 @@ import './App.css'
 
 class BooksApp extends React.Component {
   state = {
-    shelfBooks: []
+    allBooks: []
   }
 
   componentDidMount(){
-    BooksAPI.getAll().then((shelfBooks) => {
-      this.setState({shelfBooks});
-
-      console.log(shelfBooks);
+    BooksAPI.getAll().then((allBooks) => {
+      console.log(allBooks);
+      this.setState({allBooks});
     });
   }
 
@@ -25,10 +24,10 @@ class BooksApp extends React.Component {
     return (
       <div className="app">
           <Route exact path='/' render={() => (
-            <ShelfBooks shelfBooks={this.state.shelfBooks}/>
+            <BookShelves allBooks={this.state.allBooks}/>
           )}/>
           <Route path='/search' render={() => (
-            <SearchBooks shelfBooks={this.state.shelfBooks}/>
+            <SearchBooks allBooks={this.state.allBooks}/>
           )}/>
       </div>
     )
