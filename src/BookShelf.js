@@ -1,9 +1,19 @@
 import React, {Component} from 'react';
 import BookSelector from './BookSelector';
+import PropTypes from 'prop-types';
 
-class ShelfBooks extends Component{
+class BookShelf extends Component{
+    static propTypes = {
+        allBooks: PropTypes.array.isRequired,
+        shelfCategory: PropTypes.oneOf(["wantToRead", "currentlyReading", "read"]).isRequired
+    }
+
     render(){
+        const allBooks = this.props.allBooks;
+        //const properBooks =  allBooks.filter((book) => book.)
         return (
+
+
             <div className="list-books">
                 <div className="list-books-title">
                     <h1>MyReads</h1>
@@ -71,4 +81,4 @@ class ShelfBooks extends Component{
     }
 }
 
-export default ShelfBooks;
+export default BookShelf;
