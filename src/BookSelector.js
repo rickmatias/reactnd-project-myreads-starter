@@ -5,13 +5,14 @@ import PropTypes from 'prop-types'
 
 class BookSelector extends Component{
     static propTypes = {
-        chosenCategory: PropTypes.string.isRequired
+        chosenCategory: PropTypes.string.isRequired,
+        onChangeBookShelf: PropTypes.func.isRequired
     }
 
     render(){
         return (
             <div className="book-shelf-changer">
-                <select defaultValue={this.props.chosenCategory} onChange={()=> this.setState([])}>
+                <select defaultValue={this.props.chosenCategory} onChange={(e) => this.props.onChangeBookShelf(e.target.value)}>
                     <option value="none" disabled>Move to...</option>
                     {BooksApp.shelfCategories.map((shelfCategory) => (
                         <option key={shelfCategory.id}
