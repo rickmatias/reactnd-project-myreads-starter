@@ -34,7 +34,6 @@ class SearchBooks extends Component {
   updateSearchResultBooks(query){
     if(query){
       BooksAPI.search(query).then((res) => {
-        console.log(res)
         if(res.length > 0){
           const resultBooks = res.map((book) => {
             let thumbnail = ''
@@ -49,7 +48,6 @@ class SearchBooks extends Component {
               imageLinks: {thumbnail}
             })
           })
-          console.log(resultBooks)
           this.setState({searchResultBooks: resultBooks})
         }
       })
