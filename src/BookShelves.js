@@ -6,7 +6,7 @@ import BooksApp from './App';
 
 class BookShelves extends Component{
     static propTypes = {
-        myBookss: PropTypes.array.isRequired
+        myBooks: PropTypes.array.isRequired
     }
     render(){
 
@@ -19,7 +19,7 @@ class BookShelves extends Component{
                     <div>
                         {BooksApp.shelfCategories.map((category) => (
                             <BookShelf key={category.id} 
-                            myBookss={this.props.myBookss} 
+                            myBooks={this.props.myBooks} 
                             shelfCategory={category}
                             onChangeBookShelf={this.props.onChangeBookShelf}/>     
                         ))} 

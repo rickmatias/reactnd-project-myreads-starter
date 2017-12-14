@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 class SearchBooks extends Component {
     static propTypes = {
-        myBookss: PropTypes.array.isRequired
+        myBooks: PropTypes.array.isRequired
     }
     state = {
         searchResultBooks: []
@@ -16,7 +16,7 @@ class SearchBooks extends Component {
     getBookShelfById(bookId){
         let shelf = 'none'
 
-        this.props.myBookss.forEach(book => {
+        this.props.myBooks.forEach(book => {
             if(book.id === bookId){
                 shelf = book.shelf
             }
