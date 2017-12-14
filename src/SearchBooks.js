@@ -14,7 +14,7 @@ class SearchBooks extends Component {
     }
 
     getBookShelfById(bookId){
-        let shelf = 'None'
+        let shelf = 'none'
 
         this.props.allBooks.forEach(book => {
             if(book.id === bookId){
@@ -26,20 +26,28 @@ class SearchBooks extends Component {
     }
     
     updateSearchResultBooks(query){
-        BooksAPI.search(query).then((res) => {
-
-            const resultBooks = res.map((book) => {
-                return ({
-                    id: book.id, 
-                    title: book.title, 
-                    author: book.author, 
-                    shelf: this.getBookShelfById(book.id),
-                    imageLinks: {thumbnail: book.imageLinks.thumbnail}
-                })
+        if(query){
+            BooksAPI.search(query).then((res) => {
+                console.log(res)
+                if(res.length > 0){
+                    const resultBooks = res.map((book) => {
+                        let thumbnail = ''
+                        if(book.imageLinks){
+                            thumbnail = book.imageLinks.thumbnail
+                        }
+                        return ({
+                            id: book.id, 
+                            title: book.title, 
+                            author: book.author, 
+                            shelf: this.getBookShelfById(book.id),
+                            imageLinks: {thumbnail}
+                        })
+                    })
+                    console.log(resultBooks)
+                    this.setState({searchResultBooks: resultBooks})
+                }
             })
-            console.log(resultBooks)
-            this.setState({searchResultBooks: resultBooks})
-        })
+        }
     }
 
     render(){
