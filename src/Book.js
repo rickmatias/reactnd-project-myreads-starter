@@ -7,14 +7,14 @@ class Book extends Component{
     book: PropTypes.object.isRequired,
     onChangeBookShelf: PropTypes.func.isRequired
   }
-    
+
   updateBookShelf(shelfId){
     this.props.onChangeBookShelf(this.props.book, shelfId)
   }
-    
+
   render(){
     const book = this.props.book;
-        
+
     return (
       <div className="book">
         <div className="book-top">

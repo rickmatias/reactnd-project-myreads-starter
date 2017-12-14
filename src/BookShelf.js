@@ -10,13 +10,12 @@ class BookShelf extends Component{
   }
 
   render(){
-    
     const {id, title} = this.props.shelfCategory
-    
+
     const properBooks =  this.props.myBooks.filter(
         (book) => book.shelf === id
     )
-    
+
     return (
       <div className="bookshelf">
         <h2 className="bookshelf-title">{title}</h2>
