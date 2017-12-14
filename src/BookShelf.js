@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 class BookShelf extends Component{
     static propTypes = {
-        allBooks: PropTypes.array.isRequired,
+        myBookss: PropTypes.array.isRequired,
         shelfCategory: PropTypes.object.isRequired,
         onChangeBookShelf: PropTypes.func.isRequired
     }
@@ -13,8 +13,8 @@ class BookShelf extends Component{
         const categoryId = this.props.shelfCategory.id;
         const categoryTitle = this.props.shelfCategory.title;
         
-        const allBooks = this.props.allBooks;
-        const properBooks =  allBooks.filter((book) => book.shelf === categoryId);
+        const myBookss = this.props.myBookss;
+        const properBooks =  myBookss.filter((book) => book.shelf === categoryId);
         
         return (
             <div className="bookshelf">

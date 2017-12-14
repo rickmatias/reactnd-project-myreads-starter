@@ -8,7 +8,7 @@ import './App.css'
 
 class BooksApp extends React.Component {
   state = {
-    allBooks: []
+    myBookss: []
   }
 
   static shelfCategories = [
@@ -28,24 +28,24 @@ class BooksApp extends React.Component {
   }
   
   refreshAllBooks(){
-    BooksAPI.getAll().then((allBooks) => {
-      this.setState({allBooks})
+    BooksAPI.getAll().then((myBookss) => {
+      this.setState({myBookss})
     })
   }
 
   removeBook(bookId){
-     const updatedBooks = this.state.allBooks.filter((book) => book.id !== bookId)
-     this.setState({allBooks: updatedBooks})
+     const updatedBooks = this.state.myBookss.filter((book) => book.id !== bookId)
+     this.setState({myBookss: updatedBooks})
   }
 
   render() {
     return (
       <div className="app">
           <Route exact path='/' render={() => (
-            <BookShelves allBooks={this.state.allBooks} onChangeBookShelf={(book, shelfId) => this.updateBookShelf(book, shelfId)}/>
+            <BookShelves myBookss={this.state.myBookss} onChangeBookShelf={(book, shelfId) => this.updateBookShelf(book, shelfId)}/>
           )}/>
           <Route path='/search' render={() => (
-            <SearchBooks allBooks={this.state.allBooks} onChangeBookShelf={(book, shelfId) => this.updateBookShelf(book, shelfId)}/>
+            <SearchBooks myBookss={this.state.myBookss} onChangeBookShelf={(book, shelfId) => this.updateBookShelf(book, shelfId)}/>
           )}/>
       </div>
     )
