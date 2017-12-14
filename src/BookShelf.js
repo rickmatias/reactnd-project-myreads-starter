@@ -10,15 +10,16 @@ class BookShelf extends Component{
   }
 
   render(){
-    const categoryId = this.props.shelfCategory.id;
-    const categoryTitle = this.props.shelfCategory.title;
     
-    const myBooks = this.props.myBooks;
-    const properBooks =  myBooks.filter((book) => book.shelf === categoryId);
+    const {id, title} = this.props.shelfCategory
+    
+    const properBooks =  this.props.myBooks.filter(
+        (book) => book.shelf === id
+    )
     
     return (
       <div className="bookshelf">
-        <h2 className="bookshelf-title">{categoryTitle}</h2>
+        <h2 className="bookshelf-title">{title}</h2>
         <div className="bookshelf-books">
           <ol className="books-grid">
             {properBooks.map((book) => (
