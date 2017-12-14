@@ -6,6 +6,7 @@ class SearchBooksResults extends Component{
 
   static propTypes = {
     searchResultBooks: PropTypes.array.isRequired
+    //TODO: add onChangeBookShelf
   }
 
 render(){

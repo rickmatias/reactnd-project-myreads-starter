@@ -15,7 +15,8 @@ class BookSelector extends Component{
         <select defaultValue={this.props.chosenCategory} onChange={(e) => this.props.onChangeBookShelf(e.target.value)}>
           <option value="none" disabled>Move to...</option>
           {BooksApp.shelfCategories.map((shelfCategory) => (
-            <option 
+            <option
+            //TODO: REMOVE LINE
               key={shelfCategory.id}
               value={shelfCategory.id}>
               {shelfCategory.title}
