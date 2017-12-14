@@ -16,7 +16,6 @@ class BookSelector extends Component{
           <option value="none" disabled>Move to...</option>
           {BooksApp.shelfCategories.map((shelfCategory) => (
             <option
-            //TODO: REMOVE LINE
               key={shelfCategory.id}
               value={shelfCategory.id}>
               {shelfCategory.title}
