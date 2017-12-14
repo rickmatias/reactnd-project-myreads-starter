@@ -24,13 +24,20 @@ To get started developing right away:
     ├── App.css # Styles for your app. Feel free to customize this as you desire.
     ├── App.js # This is the root of your app. Contains static HTML right now.
     ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
+    ├── Books.js # A React Component that represents a book. Usually a book sits on a shelf
+    ├── Bookcase.js #A React Component that represents a bookcase that has one or more shelves.
     ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
+    ├── BookSelector.js #A React Component that represents a select when the user can choose the destination shelf to that specific book.
+    ├── BookShelf.js #A React Component that represents a shelf where one or more books sits on.
     ├── icons # Helpful images for your app. Use at your discretion.
     │   ├── add.svg
     │   ├── arrow-back.svg
     │   └── arrow-drop-down.svg
     ├── index.css # Global styles. You probably won't need to change anything here.
     └── index.js # You should not need to modify this file. It is used for DOM rendering only.
+    ├── SearchBooks.js #A React Component that represents the Search Page.
+    ├── SearchBooksBar.js #A React Component that represents the top bar on Search Page
+    ├── SearchBooksResults.js #A React Component that represents the result of search on Search Page
 ```
 
 Remember that good React design practice is to create new JS files for each component and use import/require statements to include them where they are needed.
