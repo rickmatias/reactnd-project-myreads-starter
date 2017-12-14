@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
-import PropTypes from 'prop-types'
-import BookSelector from './BookSelector'
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import BookSelector from './BookSelector';
 
 class Book extends Component{
   static propTypes = {
@@ -9,17 +9,17 @@ class Book extends Component{
   }
 
   updateBookShelf(shelfId){
-    this.props.onChangeBookShelf(this.props.book, shelfId)
+    this.props.onChangeBookShelf(this.props.book, shelfId);
   }
 
   render(){
-    const book = this.props.book
+    const book = this.props.book;
 
     return (
       <div className="book">
         <div className="book-top">
           <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})`}}></div>
-            <BookSelector 
+            <BookSelector
               chosenCategory={book.shelf}
               onChangeBookShelf={(shelfId) => this.updateBookShelf(shelfId)}
             />
@@ -27,8 +27,8 @@ class Book extends Component{
         <div className="book-title">{book.title}</div>
         <div className="book-authors">{book.author}</div>
       </div>
-    )
+    );
   }
 }
 
-export default Book
+export default Book;

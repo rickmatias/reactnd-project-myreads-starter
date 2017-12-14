@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
-import BooksApp from './App'
-import PropTypes from 'prop-types'
+import React, {Component} from 'react';
+import BooksApp from './App';
+import PropTypes from 'prop-types';
 
 
 class BookSelector extends Component{
@@ -12,7 +12,7 @@ class BookSelector extends Component{
   render(){
     return (
       <div className="book-shelf-changer">
-        <select defaultValue={this.props.chosenCategory} 
+        <select defaultValue={this.props.chosenCategory}
           onChange={(e) => this.props.onChangeBookShelf(e.target.value)}>
           <option value="none" disabled>Move to...</option>
           {BooksApp.shelfCategories.map((shelfCategory) => (
@@ -25,8 +25,8 @@ class BookSelector extends Component{
           <option value="none">None</option>
         </select>
       </div>
-    )
+    );
   }
 }
 
-export default BookSelector
+export default BookSelector;

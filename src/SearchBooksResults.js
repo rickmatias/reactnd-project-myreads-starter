@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
-import PropTypes from 'prop-types'
-import Book from './Book'
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import Book from './Book';
 
 class SearchBooksResults extends Component{
 
@@ -10,7 +10,7 @@ class SearchBooksResults extends Component{
   }
 
   render(){
-    const {searchResultBooks} = this.props
+    const {searchResultBooks} = this.props;
 
     return(
       <div className="search-books-results">
@@ -28,8 +28,8 @@ class SearchBooksResults extends Component{
           ))}
         </ol>
       </div>
-    )
+    );
   }
 }
 
-export default SearchBooksResults   
+export default SearchBooksResults;
