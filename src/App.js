@@ -40,11 +40,6 @@ class BooksApp extends React.Component {
     })
   }
 
-  removeBook(bookId){
-     const updatedBooks = this.state.myBooks.filter((book) => book.id !== bookId)
-     this.setState({myBooks: updatedBooks})
-  }
-
   render() {
     return (
       <div className="app">
