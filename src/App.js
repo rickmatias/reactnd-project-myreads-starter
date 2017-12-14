@@ -5,6 +5,7 @@ import SearchBooks from './SearchBooks'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 
+
 class BooksApp extends React.Component {
   state = {
     allBooks: []
@@ -19,26 +20,23 @@ class BooksApp extends React.Component {
   
 
   componentDidMount(){
+    this.refreshAllBooks()
+  }
+
+  updateBookShelf(bookUpdated, shelfId){
+    BooksAPI.update(bookUpdated, shelfId).then(() => this.refreshAllBooks())
+  }
+  
+  refreshAllBooks(){
     BooksAPI.getAll().then((allBooks) => {
       this.setState({allBooks})
     })
   }
 
-  updateBookShelf(bookUpdated, shelfId){
-    BooksAPI.update(bookUpdated, shelfId).then((allUpdatedBooks) => {
-      if(allUpdatedBooks[shelfId].indexOf(bookUpdated.id) >= 0){
-        this.setState({
-          allBooks: this.state.allBooks.map((book) => {
-          if(book.id === bookUpdated.id){
-            book.shelf = shelfId
-          }
-          return book
-        })})
-      }
-    })
+  removeBook(bookId){
+     const updatedBooks = this.state.allBooks.filter((book) => book.id !== bookId)
+     this.setState({allBooks: updatedBooks})
   }
-        
-
 
   render() {
     return (
