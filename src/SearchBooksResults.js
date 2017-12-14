@@ -21,7 +21,6 @@ class SearchBooksResults extends Component{
                         <li key={book.id}>
                             <Book
                             book={book}
-                            shelfCategories={book.shelf}
                             onChangeBookShelf={this.props.onChangeBookShelf}
                             />
                         </li>

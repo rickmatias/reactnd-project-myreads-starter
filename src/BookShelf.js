@@ -25,7 +25,6 @@ class BookShelf extends Component{
                             <li key={book.id}>
                                 <Book 
                                 book={book} 
-                                shelfCategories={this.props.shelfCategories}
                                 onChangeBookShelf={this.props.onChangeBookShelf}/>
                             </li>
                         ))}

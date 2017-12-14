@@ -20,8 +20,7 @@ class BookShelves extends Component{
                         {BooksApp.shelfCategories.map((category) => (
                             <BookShelf key={category.id} 
                             allBooks={this.props.allBooks} 
-                            shelfCategory={category} 
-                            shelfCategories={this.props.shelfCategories}
+                            shelfCategory={category}
                             onChangeBookShelf={this.props.onChangeBookShelf}/>     
                         ))} 
                     </div>
