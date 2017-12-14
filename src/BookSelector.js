@@ -12,7 +12,8 @@ class BookSelector extends Component{
   render(){
     return (
       <div className="book-shelf-changer">
-        <select defaultValue={this.props.chosenCategory} onChange={(e) => this.props.onChangeBookShelf(e.target.value)}>
+        <select defaultValue={this.props.chosenCategory} 
+          onChange={(e) => this.props.onChangeBookShelf(e.target.value)}>
           <option value="none" disabled>Move to...</option>
           {BooksApp.shelfCategories.map((shelfCategory) => (
             <option

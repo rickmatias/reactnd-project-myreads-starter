@@ -7,8 +7,8 @@ import PropTypes from 'prop-types'
 
 class SearchBooks extends Component {
   static propTypes = {
-    myBooks: PropTypes.array.isRequired
-    //TODO: adicionar onChangeBookShelf
+    myBooks: PropTypes.array.isRequired,
+    onChangeBookShelf: PropTypes.func.isRequired
   }
   state = {
     searchResultBooks: []

@@ -6,7 +6,8 @@ import BooksApp from './App'
 
 class Bookcase extends Component{
   static propTypes = {
-    myBooks: PropTypes.array.isRequired
+    myBooks: PropTypes.array.isRequired,
+    onChangeBookShelf: PropTypes.func.isRequired
   }
   render(){
 

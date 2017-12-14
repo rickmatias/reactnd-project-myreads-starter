@@ -5,8 +5,8 @@ import Book from './Book'
 class SearchBooksResults extends Component{
 
   static propTypes = {
-    searchResultBooks: PropTypes.array.isRequired
-    //TODO: add onChangeBookShelf
+    searchResultBooks: PropTypes.array.isRequired,
+    onChangeBookShelf: PropTypes.func.isRequired
   }
 
   render(){
