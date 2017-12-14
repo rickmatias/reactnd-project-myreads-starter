@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import BookShelf from './BookShelf';
-import {Link} from 'react-router-dom';
-import BooksApp from './App';
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
+import BookShelf from './BookShelf'
+import {Link} from 'react-router-dom'
+import BooksApp from './App'
 
 class Bookcase extends Component{
   static propTypes = {
@@ -30,8 +30,8 @@ class Bookcase extends Component{
           <Link to='/search'>Add a book</Link>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Bookcase;
+export default Bookcase

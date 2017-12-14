@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import * as BooksAPI from './BooksAPI'
 import SearchBooksBar from './SearchBooksBar'
 import SearchBooksResults from './SearchBooksResults'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 
 class SearchBooks extends Component {

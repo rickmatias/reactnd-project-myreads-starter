@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import BookSelector from './BookSelector';
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
+import BookSelector from './BookSelector'
 
 class Book extends Component{
   static propTypes = {
@@ -13,7 +13,7 @@ class Book extends Component{
   }
 
   render(){
-    const book = this.props.book;
+    const book = this.props.book
 
     return (
       <div className="book">
