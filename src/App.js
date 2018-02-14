@@ -22,20 +22,17 @@ class BooksApp extends React.Component {
   ]
 
   componentDidMount(){
-    this.refreshAllBooks();
+    BooksAPI.getAll().then(myBooks => this.setState({myBooks}));
   }
 
   updateBookShelf(bookUpdated, shelfId){
-    BooksAPI.update(bookUpdated, shelfId).then(() => this.refreshAllBooks());
-  }
-
-  /*
-  Here I decided to get all books from the server every time I update a book from shelf
-  because I thing it's safier and more practical.
-  DOUBT: is this a bad practise? Should I manipulate the array of books already in the App?
-  */
-  refreshAllBooks(){
-    BooksAPI.getAll().then(myBooks => this.setState({myBooks}));
+    bookUpdated.shelf = shelfId;
+    BooksAPI.update(bookUpdated, shelfId)
+      .then(this.setState((prevState) => (
+        {myBooks:
+          prevState.myBooks.filter(book => book.id !== bookUpdated.id)
+          .concat(bookUpdated)}
+      )));
   }
 
   render() {
