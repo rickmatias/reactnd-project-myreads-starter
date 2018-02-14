@@ -9,10 +9,15 @@ const Book = (props) => {
     props.onChangeBookShelf(book, shelfId);
   }
 
+  //Check if book has a thumbnail
+  const thumbnail = book.imageLinks ? book.imageLinks.thumbnail : '';
+  
+  const style = {backgroundImage: `url(${thumbnail})`}
+
   return(
     <div className="book">
       <div className="book-top">
-        <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})`}}></div>
+        <div className="book-cover" style={style}></div>
           <BookSelector
             chosenCategory={book.shelf}
             onChangeBookShelf={(shelfId) => updateBookShelf(shelfId)}
