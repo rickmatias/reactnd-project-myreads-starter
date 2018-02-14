@@ -3,15 +3,21 @@ import * as BooksAPI from './BooksAPI';
 import SearchBooksBar from './SearchBooksBar';
 import SearchBooksResults from './SearchBooksResults';
 import PropTypes from 'prop-types';
+import { debounce } from 'lodash';
 
 
 class SearchBooks extends Component {
+  constructor(props){
+    super(props);
+    this.updateSearchResultBooks = debounce(this.updateSearchResultBooks, 400);
+  }
   static propTypes = {
     myBooks: PropTypes.array.isRequired,
     onChangeBookShelf: PropTypes.func.isRequired
   }
   state = {
-    searchResultBooks: []
+    searchResultBooks: [],
+    query: ''
   }
 
   /*
@@ -34,6 +40,7 @@ class SearchBooks extends Component {
   updateSearchResultBooks(query){
     if(query){
       BooksAPI.search(query).then((res) => {
+        console.log(res.error);
         if(res.length > 0){
           const resultBooks = res.map((book) => {
             let thumbnail = '';
@@ -49,8 +56,12 @@ class SearchBooks extends Component {
             });
           })
           this.setState({searchResultBooks: resultBooks});
+        }else if(res.error){
+           this.setState({searchResultBooks: [], query: query});
         }
       });
+    }else{
+      this.setState({searchResultBooks: [], query: query});
     }
   }
 
@@ -60,9 +71,11 @@ class SearchBooks extends Component {
     return (
       <div className="search-books">
         <SearchBooksBar
+          query={this.state.query}
           onUpdateQuery={(query) => this.updateSearchResultBooks(query)}
         />
         <SearchBooksResults
+          query={this.state.query}
           searchResultBooks={searchResultBooks}
           onChangeBookShelf={this.props.onChangeBookShelf}
         />

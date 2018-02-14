@@ -4,19 +4,16 @@ import PropTypes from 'prop-types';
 
 class SearchBooksBar extends Component{
   static propTypes = {
-    onUpdateQuery: PropTypes.func.isRequired
-  }
-  state = {
-    query: ''
+    onUpdateQuery: PropTypes.func.isRequired,
+    query: PropTypes.string.isRequired
   }
 
   updateQuery = (query) => {
-    this.setState({ query: query.trim()});
     this.props.onUpdateQuery(query);
   }
 
   render(){
-    const {query} = this.state.query;
+    const {query} = this.props.query;
 
     return(
       <div className="search-books-bar">
