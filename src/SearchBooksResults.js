@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import Book from './Book';
+import BookGrid from './BookGrid';
 
 class SearchBooksResults extends Component{
 
@@ -21,16 +21,10 @@ class SearchBooksResults extends Component{
         {(searchResultBooks.length === 0 && query !== '') && (
           <span>Não foi encontrado nenhum livro com a palavra chave '{query}'.</span>
         )}
-        <ol className="books-grid">
-          {searchResultBooks.map((book) => (
-            <li key={book.id}>
-              <Book
-                book={book}
-                onChangeBookShelf={this.props.onChangeBookShelf}
-              />
-            </li>
-          ))}
-        </ol>
+        <BookGrid
+          books={searchResultBooks}
+          onChangeBookShelf={this.props.onChangeBookShelf}
+        />
       </div>
     );
   }

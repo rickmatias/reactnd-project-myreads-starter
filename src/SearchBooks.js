@@ -40,7 +40,6 @@ class SearchBooks extends Component {
   updateSearchResultBooks(query){
     if(query){
       BooksAPI.search(query).then((res) => {
-        console.log(res.error);
         if(res.length > 0){
           const resultBooks = res.map((book) => {
             let thumbnail = '';
