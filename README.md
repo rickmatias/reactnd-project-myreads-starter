@@ -1,13 +1,12 @@
 # MyReads Project
 
-This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.
-
-Of course, you are free to start this project from scratch if you wish! Just be sure to use [Create React App](https://github.com/facebookincubator/create-react-app) to bootstrap the project.
+This is a simple app created as a project for Udacity's React Fundamentals course. The goal of this app is organize a virtual book case that has 3 different shelves named as 'Want to read', 'Currently reading' and 'Read'. You can change a book from one shelf to another and you can search for other books and include in you book case as well.
 
 ## TL;DR
 
-To get started developing right away:
+If you want to have a copy of this app or want to continue developing this app, just do this steps:
 
+* make a clone of this app by git clone https://github.com/udacity/reactnd-project-myreads-starter.git
 * install all project dependencies with `npm install`
 * start the development server with `npm start`
 
@@ -18,14 +17,14 @@ To get started developing right away:
 ├── SEARCH_TERMS.md # The whitelisted short collection of available search terms for you to use with your app.
 ├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
 ├── public
-│   ├── favicon.ico # React Icon, You may change if you wish.
 │   └── index.html # DO NOT MODIFY
 └── src
-    ├── App.css # Styles for your app. Feel free to customize this as you desire.
-    ├── App.js # This is the root of your app. Contains static HTML right now.
+    ├── App.css # Styles for the app. Feel free to customize this as you desire.
+    ├── App.js # This is the root of the app.
     ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
     ├── Books.js # A React Component that represents a book. Usually a book sits on a shelf
     ├── Bookcase.js #A React Component that represents a bookcase that has one or more shelves.
+    ├── BookGrid.js #A React Component that represents a bookgrid that has one or more books. That component was created to better reutilization of code.
     ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
     ├── BookSelector.js #A React Component that represents a select when the user can choose the destination shelf to that specific book.
     ├── BookShelf.js #A React Component that represents a shelf where one or more books sits on.
@@ -70,7 +69,7 @@ update(book, shelf)
 ```
 
 * book: `<Object>` containing at minimum an `id` attribute
-* shelf: `<String>` contains one of ["wantToRead", "currentlyReading", "read"]  
+* shelf: `<String>` contains one of ["wantToRead", "currentlyReading", "read"]
 * Returns a Promise which resolves to a JSON object containing the response data of the POST request
 
 ### `search`
@@ -94,6 +93,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Contributing
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+Unfurtely you can not contribute to this app.
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
